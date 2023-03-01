@@ -1,6 +1,7 @@
 // Packages needed for this application
-const inquirer = require('inquirer');
-const shapes = require('./libs/shapes.js')
+import inquirer from 'inquirer';
+import { Circle, Square, Triangle } from './lib/shapes';
+
 
 // An array of questions for user input
 const questions = [{
@@ -10,17 +11,27 @@ const questions = [{
 }, {
     type: 'input',
     message:'Enter a text color',
-    name:'Text Color'
+    name:'Text-Color'
 }, {
     type: 'list',
     message:'Choose a shape from the list',
-    name:'Shape'
+    name:'Shape',
+    choices: ['Triangle', 'Circle', 'Square']
 }, {
     type: 'input',
     message:'Enter a shape color',
-    name:'Shape color'
-
+    name:'Shape-color'
 }];
 // Function to create the logo
 
 // Function to initialize the app
+inquirer.prompt(questions) 
+    .then((data) => {
+    if ('data.Triangle' === shape) {
+        return Triangle
+    } else if ('data.Circle' === shape) {
+        return Circle
+    } else {
+        return Square
+    }
+});
