@@ -1,7 +1,7 @@
 // Packages needed for this application
 import inquirer from 'inquirer';
-import { Circle, Square, Triangle } from './lib/shapes';
-
+import { Triangle, Circle, Square } from './lib/shapes.js';
+const fs = require('fs');
 
 // An array of questions for user input
 const questions = [{
@@ -23,15 +23,34 @@ const questions = [{
     name:'Shape-color'
 }];
 // Function to create the logo
+function writeToFile(filename, data) {
 
+    fs.writeFile(filename, {Triangle, Circle, Square}(data), error => {
+        if (error) {
+           return console.log(error)
+        } else {
+            console.log('Generated logo.svg')
+        }
+    });
+};
 // Function to initialize the app
 inquirer.prompt(questions) 
     .then((data) => {
-    if ('data.Triangle' === shape) {
+    if ('data.Triangle' === Shape) {
         return Triangle
-    } else if ('data.Circle' === shape) {
+    } else if ('data.Circle' === Shape) {
         return Circle
     } else {
         return Square
-    }
+    } 
 });
+
+function init() {
+    return inquirer.prompt(questions)
+    .then((data) => {
+        writeToFile('logo.svg', data);
+        console.log(data);
+    }); 
+};
+
+init()
