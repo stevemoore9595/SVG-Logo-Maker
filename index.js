@@ -2,10 +2,12 @@
 // import inquirer from 'inquirer';
 const inquirer = require("inquirer");
 
-const {Shape, Triangle, Circle, Square } = require('./lib/shapes.js');
+const { Triangle, Circle, Square } = require('./lib/shapes.js');
 // import { Triangle, Circle, Square } from './lib/shapes.js';
 // import fs from 'fs';
 const fs = require('fs');
+
+// let userShape = data
 
 // An array of questions for user input
 const questions = [{
@@ -14,7 +16,7 @@ const questions = [{
     name:'Text'
 }, {
     type: 'input',
-    message:'Enter a text color',
+    message:'Enter a text color, or a hexadecimal number',
     name:'TextColor'
 }, {
     type: 'list',
@@ -23,7 +25,7 @@ const questions = [{
     choices: ['Triangle', 'Circle', 'Square']
 }, {
     type: 'input',
-    message:'Enter a shape color',
+    message:'Enter a shape color, or a hexadecimal number',
     name:'ShapeColor'
 }];
 // Function to create the logo
@@ -38,7 +40,6 @@ function writeToFile(filename, data) {
     });
 };
 // Function to initialize the app
-
 
 function init() {
    return inquirer.prompt(questions) 
@@ -55,9 +56,10 @@ function init() {
     userShape.setTextColor(data.TextColor)
     userShape.setText(data.Text)
     console.log(userShape)
-    return writeToFile('logo.svg', userShape.renderTriangle());
-})
+    return writeToFile('logo.svg', userShape.render());
+   
+});
 };
 
-init()
+init();
 
