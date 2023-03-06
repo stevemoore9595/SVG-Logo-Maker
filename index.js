@@ -1,13 +1,7 @@
-// Packages needed for this application
-// import inquirer from 'inquirer';
+//Variables to import inquirer, shapes, and fs
 const inquirer = require("inquirer");
-
 const { Triangle, Circle, Square } = require('./lib/shapes.js');
-// import { Triangle, Circle, Square } from './lib/shapes.js';
-// import fs from 'fs';
 const fs = require('fs');
-
-// let userShape = data
 
 // An array of questions for user input
 const questions = [{
