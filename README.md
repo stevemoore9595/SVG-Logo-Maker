@@ -32,7 +32,7 @@
 
   ## Walkthrough Video
   
-  - Walkthrough Video Link: 
+  - Walkthrough Video Link: https://watch.screencastify.com/v/neYIi02de2SbKf5WwDRI
 
   ## Questions
 
